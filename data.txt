@@ -1,0 +1,11 @@
+City,Crime Rate,Population
+New York City,75.2,8537673
+Los Angeles,61.5,3979576
+Chicago,88.7,2693976
+Houston,53.8,2138471
+Phoenix,42.3,1680992
+Philadelphia,65.1,1584138
+San Antonio,48.9,1547253
+San Diego,40.2,1423851
+Dallas,70.1,1343573
+San Jose,33.3,1030119

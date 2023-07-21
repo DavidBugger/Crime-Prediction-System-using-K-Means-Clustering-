@@ -1,0 +1,45 @@
+<div class="container mt-4" style="background-image: url('assets/img/bg/bg.png');">
+    <h1>Register Member</h1>
+    <form method="POST" action="/register_member" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="firstname">First Name:</label>
+            <input type="text" class="form-control" id="firstname" name="firstname" required>
+        </div>
+        <div class="form-group">
+            <label for="lastname">Last Name:</label>
+            <input type="text" class="form-control" id="lastname" name="lastname" required>
+        </div>
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <input type="text" class="form-control" id="address" name="address" required>
+        </div>
+        <div class="form-group">
+            <label for="photo">Photo:</label>
+            <input type="file" class="form-control-file" id="photo" name="photo" accept="image/*" required>
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <input type="text" class="form-control" id="gender" name="gender" required>
+        </div>
+        <div class="form-group">
+            <label for="criminal_offence">Criminal Offence:</label>
+            <input type="text" class="form-control" id="criminal_offence" name="criminal_offence" required>
+        </div>
+        <div class="form-group">
+            <label for="status">Status:</label>
+            <input type="text" class="form-control" id="status" name="status" required>
+        </div>
+        <div class="form-group">
+            <label for="nationality">Nationality:</label>
+            <select class="form-control" id="nationality" name="nationality" required>
+                <option value="" disabled selected>Select Nationality</option>
+                <option value="country1">Country 1</option>
+                <option value="country2">Country 2</option>
+                <!-- Add more options for each country -->
+            </select>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+    <a href="/details" class="btn btn-secondary mt-3">View Registered Members</a>
+</div>

@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">User Login</h4>
+                        <form method="POST" action="/login" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="username">Username:</label>
+                                <input type="text" class="form-control" id="username" name="username" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password:</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                            </div>
+                            <!-- <div class="form-group">
+                                <label for="signature">Signature:</label>
+                                <input type="file" class="form-control" id="signature" name="signature" accept=".png,.jpg,.jpeg" required>
+                            </div> -->
+                            <br>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add these script tags in your HTML template -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.all.min.js"></script>
+
+   <!-- Add this script tag in your HTML template -->
+   <script>
+    // Handle form submission with jQuery
+    $(document).on('submit', 'form', function(e) {
+      e.preventDefault();
+      $.ajax({
+        url: $(this).attr('action'),
+        type: $(this).attr('method'),
+        data: new FormData(this),
+        processData: false,
+        contentType: false,
+        success: function(response) {
+          // Display the success message using SweetAlert
+          Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: response.message,
+            showConfirmButton: false,
+            timer: 3000
+          }).then(() => {
+            // Redirect to the details page after displaying the success message
+            window.location.href = '/dashboard';
+          });
+        },
+        error: function(xhr, status, error) {
+          // Display the error message using SweetAlert
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: xhr.responseText,
+            showConfirmButton: true
+          });
+        }
+      });
+    });
+  </script>
+{% endblock %}

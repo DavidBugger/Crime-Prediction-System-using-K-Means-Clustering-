@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registered Members</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+    {% extends 'base.html' %}
+
+    {% block content %}
+    <div class="container mt-4">
+        <h1 style="text-align: center;">Registered Members</h1>
+    
+        <table class="table table-striped" style="background-color: #f2f2f2;">
+            <a href="/register_member" class="btn btn-primary mt-3">Register New Member</a>
+            <a href="/dashboard" class="btn btn-primary mt-3">Dashboard</a>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Address</th>
+                    <th>Photo</th>
+                    <th>Gender</th>
+                    <th>Criminal Offence</th>
+                    <th>Status</th>
+                    <th>Nationality</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for member in members %}
+                <tr>
+                    <td>{{ member[1] }}</td>
+                    <td>{{ member[2] }}</td>
+                    <td>{{ member[3] }}</td>
+                    <td>{{ member[4] }}</td>
+                    <td><img src="{{ url_for('static', filename='photos/' + member[5]) }}" alt="Member Photo" width="100"></td>
+                    <td>{{ member[6] }}</td>
+                    <td>{{ member[7] }}</td>
+                    <td>{{ member[8] }}</td>
+                    <td>{{ member[9] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+       
+    </div>
+
+
+
+    <!-- Add Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    {% endblock %}
+</body>
+</html>

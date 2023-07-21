@@ -1,0 +1,264 @@
+{% extends 'base.html' %} {% block content %}
+
+<body class="sb-nav-fixed">
+  <nav class="sb-topnav navbar navbar-expand navbar-success bg-success">
+    <!-- Navbar Brand-->
+    <a class="navbar-brand ps-3" href="index.html"
+      ><h4 style="color: #fff;">Welcome Back {{username}}</h4>
+      </a
+    >
+    <!-- Sidebar Toggle-->
+    <button
+      class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
+      id="sidebarToggle"
+      href="#!"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+    <!-- Navbar Search-->
+    <form
+      class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"
+    >
+      <div class="input-group">
+        <input
+          class="form-control"
+          type="text"
+          placeholder="Search for..."
+          aria-label="Search for..."
+          aria-describedby="btnNavbarSearch"
+        />
+        <button class="btn btn-primary" id="btnNavbarSearch" type="button">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </form>
+    <!-- Navbar-->
+    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          id="navbarDropdown"
+          href="#"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+          ><i class="fas fa-user fa-fw"></i
+        ></a>
+        <ul
+          class="dropdown-menu dropdown-menu-end"
+          aria-labelledby="navbarDropdown"
+        >
+          <li><a class="dropdown-item" href="#!">Settings</a></li>
+          <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+          <li><hr class="dropdown-divider" /></li>
+          <li><a class="dropdown-item" href="#!">Logout</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+      <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+        <div class="sb-sidenav-menu">
+          <div class="nav">
+            <div class="sb-sidenav-menu-heading">Core</div>
+            <a class="nav-link" href="index.html">
+              <div class="sb-nav-link-icon">
+                <i class="fas fa-tachometer-alt"></i>
+              </div>
+              Dashboard
+            </a>
+            <div class="sb-sidenav-menu-heading">Operations</div>
+            <a
+              class="nav-link collapsed"
+              href="#"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseLayouts"
+              aria-expanded="false"
+              aria-controls="collapseLayouts"
+            >
+              <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+              Analyze crime
+              <div class="sb-sidenav-collapse-arrow">
+                <i class="fas fa-angle-down"></i>
+              </div>
+            </a>
+            <div
+              class="collapse"
+              id="collapseLayouts"
+              aria-labelledby="headingOne"
+              data-bs-parent="#sidenavAccordion"
+            >
+              <nav class="sb-sidenav-menu-nested nav">
+                <a class="nav-link" href="/upload">Upload Crime</a>
+                <a class="nav-link" href="/details">Member Details</a>
+                <a class="nav-link" href="/verify_member">Verify User</a>
+              </nav>
+            </div>
+           
+        <div class="sb-sidenav-footer">
+          <div class="small">Logged in as: Admin</div>
+          {{username}}
+        </div>
+      </nav>
+    </div>
+    <div id="layoutSidenav_content">
+      <main>
+        <div class="container-fluid px-4">
+          <h1 class="mt-4">Dashboard</h1>
+          <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Dashboard</li>
+          </ol>
+          <div class="row">
+            <div class="col-xl-3 col-md-6">
+              <div class="card bg-dark text-white mb-4">
+                <div class="card-body">
+                  <div class="small text-white">
+                    <i class="fa fa-fw fa-user" aria-hidden="true"></i>
+                  </div>
+                  Total Records {{total_members}}
+                </div>
+                <div
+                  class="card-footer d-flex align-items-center justify-content-between"
+                >
+                  <!-- <a class="small text-white stretched-link" href="#">View Details</a> -->
+                  <!-- <div class="small text-white"><i class="fa fa-university" aria-hidden="true"></i></div> -->
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="card bg-success text-white mb-4">
+                <div class="card-body">
+                  <i class="fa fa-fw fa-address-book" aria-hidden="true"></i>
+                 <br />Criminals {{members_with_criminal_records}}
+                </div>
+                <div
+                  class="card-footer d-flex align-items-center justify-content-between"
+                >
+                  <!-- <a class="small text-white stretched-link" href="#">View Details</a> -->
+                  <div class="small text-white"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="card bg-secondary text-white mb-4">
+                <div class="card-body">
+                  <i class="fa fa-university fa-2x" aria-hidden="true"></i
+                  ><br />Nigerians {{ nigerian_members}}
+                </div>
+                <div
+                  class="card-footer d-flex align-items-center justify-content-between"
+                ></div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="card bg-danger text-white mb-4">
+                <div class="card-body">
+                  <i class="fa fa-university fa-2x" aria-hidden="true"></i
+                  ><br />Status {{nigerian_members}}
+
+                  
+                </div>
+                <div
+                  class="card-footer d-flex align-items-center justify-content-between"
+                ></div>
+              </div>
+            </div>
+          </div>
+      
+
+          <div class="row">
+            <div class="col-xl-6">
+              <div class="card mb-4">
+                <div class="card-header">
+                  <i class="fas fa-chart-area me-1"></i>
+                  Area Chart 
+                </div>
+                <div class="card-body">
+                    <div>
+                        <canvas id="barChart" width="400" height="200"></canvas>
+                      </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6">
+              <div class="card mb-4">
+                <div class="card-header">
+                  <i class="fas fa-chart-bar me-1"></i>
+               
+                  
+                </div>
+                <div class="card-body">
+                    <div>
+                        <canvas id="pieChart" width="400" height="200"></canvas>
+                      </div>
+                
+                  
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer class="py-4 bg-light mt-auto">
+        <div class="container-fluid px-4">
+          <div class="d-flex align-items-center justify-content-between small">
+            <div class="text-muted">Copyright &copy; IRS 2023</div>
+            <div>
+              <a href="#">Privacy Policy</a>
+              &middot;
+              <a href="#">Terms &amp; Conditions</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+
+<!-- Add these script tags in your HTML template -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    $(document).ready(function() {
+      // Example data for the bar chart
+      var barChartData = {
+        labels: ["January", "February", "March", "April", "May"],
+        datasets: [{
+          label: "Registration",
+          backgroundColor: "rgba(75, 192, 192, 0.2)",
+          borderColor: "rgba(75, 192, 192, 1)",
+          borderWidth: 1,
+          data: [10, 20, 15, 30, 25],
+        }]
+      };
+  
+      // Example data for the pie chart
+      var pieChartData = {
+        labels: ["members", "Nig", "others"],
+        datasets: [{
+          data: [30, 25, 45],
+          backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+          hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"]
+        }]
+      };
+  
+      // Render the bar chart
+      var barChartCanvas = $("#barChart");
+      new Chart(barChartCanvas, {
+        type: "bar",
+        data: barChartData
+      });
+  
+      // Render the pie chart
+      var pieChartCanvas = $("#pieChart");
+      new Chart(pieChartCanvas, {
+        type: "pie",
+        data: pieChartData
+      });
+    });
+  </script>
+  
+
+{% endblock %}
